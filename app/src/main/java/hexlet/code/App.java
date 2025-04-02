@@ -14,6 +14,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
+import hexlet.code.Differ;
+
 @Command(name = "gendiff",
         description = "Compares two configuration files and shows a difference.")
 public class App {
@@ -40,24 +42,16 @@ public class App {
             return;
         }
 
-        // get file path
-        Path path1 =  Paths.get(filepath1);
-        Path path2 = Paths.get(filepath2);
+        String result = Differ.generate(filepath1, filepath2, format);
 
-        System.out.println(filepath1);
-        System.out.println(filepath2);
-
-        // read file
-        File file1 = new File(filepath1);
-        File file2 = new File(filepath2);
-        // parse file to Map
-        ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Object> map1 = objectMapper.readValue(file1, new TypeReference<Map<String,Object>>(){});
-        Map<String, Object> map2 = objectMapper.readValue(file2, new TypeReference<Map<String,Object>>(){});
-        System.out.println(map1);
-        System.out.println(map1.get("timeout"));
-        System.out.println(map2);
+        System.out.println(result);
 
         System.out.println("Hello World!");
+    }
+
+    //@Override
+    public void call(String filepath1, String filepath2) throws IOException {
+        String result = Differ.generate(filepath1, filepath2, format);
+        System.out.println(result);
     }
 }

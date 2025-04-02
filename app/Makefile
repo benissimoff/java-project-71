@@ -2,7 +2,7 @@ run-dist:
 	./build/install/app/bin/app ./input/file1.json ./input/file2.json
 
 build:
-	./gradlew installDist
+	./gradlew installDist --warning-mode all
 
 check-style:
 	./gradlew checkstyleMain
