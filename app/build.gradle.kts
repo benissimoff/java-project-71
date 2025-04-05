@@ -4,8 +4,18 @@ version = "1.0-SNAPSHOT"
 plugins {
     id("java")
     id("application")
+    id("checkstyle")
     id("com.github.ben-manes.versions") version "0.50.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("org.sonarqube") version "6.0.1.5171"
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "benissimoff_java-project-71")
+        property("sonar.organization", "benissimoff")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
 
 application { mainClass.set("hexlet.code.App") }

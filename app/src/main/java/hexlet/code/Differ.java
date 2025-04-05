@@ -32,8 +32,8 @@ public class Differ {
 
         // parse file to Map
         ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Object> map1 = objectMapper.readValue(file1, new TypeReference<Map<String,Object>>(){});
-        Map<String, Object> map2 = objectMapper.readValue(file2, new TypeReference<Map<String,Object>>(){});
+        Map<String, Object> map1 = objectMapper.readValue(file1, new TypeReference<Map<String, Object>>() { });
+        Map<String, Object> map2 = objectMapper.readValue(file2, new TypeReference<Map<String, Object>>() { });
 //        System.out.println(map1);
 //        System.out.println(map1.get("timeout"));
 //        System.out.println(map2);
