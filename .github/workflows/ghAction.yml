@@ -1,0 +1,10 @@
+name: TestGithudActoins
+on:
+  push:
+    branches:
+      - main
+jobs:
+  soSome:
+    name: Do Something
+    runs-on: ubuntu-latest
+    steps:
