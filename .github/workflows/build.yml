@@ -13,11 +13,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Set up JDK 17
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: 17
-          distribution: 'zulu' # Alternative distribution options are available
+          java-version: 21
+          distribution: 'oracle' # Alternative distribution options are available
       - name: Cache SonarQube packages
         uses: actions/cache@v4
         with:
@@ -33,4 +33,5 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./app/gradlew build sonar --info
+        working-directory: ./app
+        run: ./gradlew build sonar --info
