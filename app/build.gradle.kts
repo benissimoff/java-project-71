@@ -7,8 +7,8 @@ plugins {
     id("checkstyle")
     id("com.github.ben-manes.versions") version "0.50.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-//    id("org.sonarqube") version "6.0.1.5171"
     id("org.sonarqube") version "6.1.0.5360"
+    id("jacoco")
 }
 
 sonar {
@@ -52,4 +52,12 @@ tasks.test {
 //        // showCauses = true
 //        showStandardStreams = true
 //    }
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // tests are required to run before generating the report
+    reports {
+        xml.required = true
+    }
 }
