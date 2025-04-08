@@ -4,8 +4,8 @@ on:
     branches:
       - main
 jobs:
-  soSome:
-    name: Do Something
+  build:
+    name: Gradle Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,4 +16,8 @@ jobs:
         with:
           java-version: 21
           distribution: 'oracle'
-          # distribution: 'zulu' # Alternative distribution options are available
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+# gradlew build
+      - name: Run Gradle Build
+        run: ./app/gradlew build
