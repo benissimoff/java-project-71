@@ -26,8 +26,13 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
+//    testImplementation(platform("org.junit:junit-bom:5.9.1"))
+
+//    testImplementation("org.junit.jupiter:junit-jupiter")
+
+    testImplementation(platform("org.junit:junit-bom:5.10.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+
     implementation("info.picocli:picocli:4.7.6")
     annotationProcessor("info.picocli:picocli-codegen:4.7.6")
     implementation("com.fasterxml.jackson.core:jackson-core:2.18.2")
@@ -40,4 +45,11 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+//    testLogging {
+//        exceptionFormat = TestExceptionFormat.FULL
+//        events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
+//        // showStackTraces = true
+//        // showCauses = true
+//        showStandardStreams = true
+//    }
 }

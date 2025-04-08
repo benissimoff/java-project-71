@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
 import java.util.Map;
 
 import java.util.ArrayList;
@@ -20,8 +20,8 @@ public class Differ {
         // parse to Map
 
         // get file path
-        Path path1 =  Paths.get(filepath1);
-        Path path2 = Paths.get(filepath2);
+//        Path path1 = Paths.get(filepath1);
+//        Path path2 = Paths.get(filepath2);
 //
 //        System.out.println(filepath1);
 //        System.out.println(filepath2);
@@ -78,5 +78,10 @@ public class Differ {
 //        System.out.println("output\n" + output);
 
         return (output);
+    }
+
+    public static String generate(String filepath1, String filepath2) throws IOException {
+        String format = "stylish";
+        return generate(filepath1, filepath2, format);
     }
 }
