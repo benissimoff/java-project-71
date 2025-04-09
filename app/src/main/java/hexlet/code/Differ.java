@@ -2,11 +2,14 @@ package hexlet.code;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
+//import
 
 import java.io.File;
 import java.io.IOException;
 //import java.nio.file.Path;
 //import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Map;
 
 import java.util.ArrayList;
@@ -31,7 +34,13 @@ public class Differ {
         File file2 = new File(filepath2);
 
         // parse file to Map
-        ObjectMapper objectMapper = new ObjectMapper();
+        String fileType = filepath1.substring(filepath1.lastIndexOf('.') + 1);
+        System.out.println("fileType " + fileType);
+        ObjectMapper objectMapper = new YAMLMapper();
+        if ("json".equals(fileType)) {
+            objectMapper = new ObjectMapper();
+        }
+
         Map<String, Object> map1 = objectMapper.readValue(file1, new TypeReference<Map<String, Object>>() { });
         Map<String, Object> map2 = objectMapper.readValue(file2, new TypeReference<Map<String, Object>>() { });
 //        System.out.println(map1);

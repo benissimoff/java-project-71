@@ -1,7 +1,10 @@
 run-dist:
 	./build/install/app/bin/app ./input/file1.json ./input/file2.json
-test-app:
+test-json:
 	./build/install/app/bin/app ./src/test/resources/file1.json ./src/test/resources/file2.json
+
+test-yaml:
+	./build/install/app/bin/app ./src/test/resources/file1.yaml ./src/test/resources/file2.yaml
 
 build:
 	./gradlew installDist --warning-mode all
