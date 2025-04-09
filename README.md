@@ -8,7 +8,10 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=benissimoff_java-project-71&metric=coverage)](https://sonarcloud.io/summary/new_code?id=benissimoff_java-project-71)
 
 
-Compare two json files with diff application
+Compare two files with diff application
 
-Example:
+Json files compare example:
 [![asciicast](https://asciinema.org/a/4nTiF3rg9Pnetj0EIQfR90tkj.svg)](https://asciinema.org/a/4nTiF3rg9Pnetj0EIQfR90tkj)
+
+Yaml files compare example:
+[![asciicast](https://asciinema.org/a/713742.svg)](https://asciinema.org/a/713742)
