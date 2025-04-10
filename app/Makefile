@@ -6,6 +6,12 @@ test-json:
 test-yaml:
 	./build/install/app/bin/app ./src/test/resources/file1.yaml ./src/test/resources/file2.yaml
 
+test-long-json:
+	./build/install/app/bin/app ./src/test/resources/long/file1.json ./src/test/resources/long/file2.json
+
+test-long-json-reversed:
+	./build/install/app/bin/app ./src/test/resources/long/file2.json ./src/test/resources/long/file1.json
+
 build:
 	./gradlew installDist --warning-mode all
 

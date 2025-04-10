@@ -12,9 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestDiffer {
     @Test
     public void testDifferJson() throws IOException {
-        String filepath1 = "./src/test/resources/file1.json";
-        String filepath2 = "./src/test/resources/file2.json";
-        String expectedFilepath = "./src/test/resources/result.txt";
+        String filepath1 = "./src/test/resources/short/file1.json";
+        String filepath2 = "./src/test/resources/short/file2.json";
+        String expectedFilepath = "./src/test/resources/short/result.txt";
 
 //        System.out.println("outFile " + outFile);
 
@@ -31,10 +31,53 @@ public class TestDiffer {
         assertEquals(expected, actual);
     }
 
+    @Test
     public void testDifferYaml() throws IOException {
-        String filepath1 = "./src/test/resources/file1.yaml";
-        String filepath2 = "./src/test/resources/file2.yaml";
-        String expectedFilepath = "./src/test/resources/result.txt";
+        String filepath1 = "./src/test/resources/short/file1.yaml";
+        String filepath2 = "./src/test/resources/short/file2.yaml";
+        String expectedFilepath = "./src/test/resources/short/result.txt";
+
+//        System.out.println("outFile " + outFile);
+
+        Path expectedPath = Paths.get(expectedFilepath);
+        String expected = String.join("\n", Files.readAllLines(expectedPath));
+
+//        System.out.println("actual " + actual);
+
+        // get differ
+        String actual = Differ.generate(filepath1, filepath2);
+//        System.out.println("actual " + actual);
+
+        // compare result
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testDifferLongJson() throws IOException {
+        String filepath1 = "./src/test/resources/long/file1.json";
+        String filepath2 = "./src/test/resources/long/file2.json";
+        String expectedFilepath = "./src/test/resources/long/result.txt";
+
+//        System.out.println("outFile " + outFile);
+
+        Path expectedPath = Paths.get(expectedFilepath);
+        String expected = String.join("\n", Files.readAllLines(expectedPath));
+
+//        System.out.println("actual " + actual);
+
+        // get differ
+        String actual = Differ.generate(filepath1, filepath2);
+//        System.out.println("actual " + actual);
+
+        // compare result
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testDifferLongYaml() throws IOException {
+        String filepath1 = "./src/test/resources/long/file1.yaml";
+        String filepath2 = "./src/test/resources/long/file2.yml";
+        String expectedFilepath = "./src/test/resources/long/result.txt";
 
 //        System.out.println("outFile " + outFile);
 
