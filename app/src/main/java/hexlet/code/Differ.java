@@ -3,6 +3,7 @@ package hexlet.code;
 import java.io.IOException;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.TreeSet;
 
 public class Differ {
@@ -28,16 +29,19 @@ public class Differ {
         ArrayList<String> result = new ArrayList<String>();
         result.add("{");
 
+        ArrayList<DiffItem> changes = new ArrayList<DiffItem>();
+
         for (String key : keys) {
+            changes.add(DiffItem.init(key, map1, map2));
             Object value1 = map1.get(key);
             Object value2 = map2.get(key);
 
-//            System.out.println(key + ":" + value1 + "/" + value2);
+            System.out.println(key + ":" + value1 + "/" + value2);
             if (!map1.containsKey(key)) {
                 result.add("  + "  + key + ": " + value2);
             } else if (!map2.containsKey(key)) {
                 result.add("  - "  + key + ": " + value1);
-            } else if (value1.equals(value2)) {
+            } else if (Objects.equals(value1, value2)) {
                 result.add("    " + key + ": " + value1);
             } else {
                 result.add("  - "  + key + ": " + value1);
@@ -51,9 +55,14 @@ public class Differ {
         // return result
         String output = String.join("\n", result);
 
-//        System.out.println("output\n" + output);
+        System.out.println("output\n" + output);
 
-        return (output);
+        String outputStylish = Formatter.stylish(changes);
+
+        System.out.println("outputStylish\n" + outputStylish);
+
+
+        return outputStylish;
     }
 
     public static String generate(String filepath1, String filepath2) throws IOException {

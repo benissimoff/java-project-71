@@ -16,7 +16,7 @@ public class Parser {
         String fileType = filepath.substring(filepath.lastIndexOf('.') + 1);
 //        System.out.println("fileType " + fileType);
         ObjectMapper objectMapper = new YAMLMapper();
-        if ("json".equals(fileType)) {
+        if (fileType.endsWith(".json")) {
             objectMapper = new ObjectMapper();
         }
 
