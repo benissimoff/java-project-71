@@ -10,7 +10,9 @@ import java.io.IOException;
 @Command(name = "gendiff",
         description = "Compares two configuration files and shows a difference.")
 public class App {
-    @Option(names = {"-f", "--format"}, paramLabel = "format", description = "output format [default: stylish]")
+    @Option(names = {"-f", "--format"},
+            paramLabel = "format",
+            description = "output format [default: ${DEFAULT-VALUE}]")
     private static String format = "stylish";
     @Parameters(index = "0", description = "path to first file", paramLabel = "filepath1")
     private static String filepath1;
@@ -32,6 +34,8 @@ public class App {
             commandLine.printVersionHelp(System.out);
             return;
         }
+
+//        System.out.println("format " + format);
 
         String result = Differ.generate(filepath1, filepath2, format);
 

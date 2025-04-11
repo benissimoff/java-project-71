@@ -31,7 +31,7 @@ public record DiffItem(String key, Object oldValue, Object newValue, Status stat
 
         DiffItem item;
 
-        System.out.println(key + ":" + value1 + "/" + value2);
+//        System.out.println(key + ":" + value1 + "/" + value2);
         if (!map1.containsKey(key)) {
             item = new DiffItem(key, null, value2, Status.ADDED);
 //            result.add("  + "  + key + ": " + value2);

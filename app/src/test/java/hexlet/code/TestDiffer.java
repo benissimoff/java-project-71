@@ -94,4 +94,25 @@ public class TestDiffer {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testDifferLongPlain() throws IOException {
+        String filepath1 = "./src/test/resources/long/file1.yaml";
+        String filepath2 = "./src/test/resources/long/file2.yml";
+        String expectedFilepath = "./src/test/resources/long/resultPlain.txt";
+        String format = "plain";
+//        System.out.println("outFile " + outFile);
+
+        Path expectedPath = Paths.get(expectedFilepath);
+        String expected = String.join("\n", Files.readAllLines(expectedPath));
+
+//        System.out.println("actual " + actual);
+
+        // get differ
+        String actual = Differ.generate(filepath1, filepath2, format);
+//        System.out.println("actual " + actual);
+
+        // compare result
+        assertEquals(expected, actual);
+    }
+
 }

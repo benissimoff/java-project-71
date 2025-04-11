@@ -1,43 +1,27 @@
 package hexlet.code;
 
-import java.util.ArrayList;
+import hexlet.code.formatters.Format;
+import hexlet.code.formatters.Plain;
+import hexlet.code.formatters.Stylish;
+
 import java.util.List;
 
 public class Formatter {
-    public static String stylish(List<DiffItem> changes) {
-        ArrayList<String> result = new ArrayList<String>();
-        result.add("{");
-
-        for (DiffItem change : changes) {
-            StringBuilder item = new StringBuilder();
-            String key = change.key();
-            Object newValue = change.newValue();
-            Object oldValue = change.oldValue();
-
-            switch (change.status()) {
-                case ADDED:
-                    item.append("  + ").append(key).append(": ").append(newValue);
-                    break;
-                case DELETED:
-                    item.append("  - ").append(key).append(": ").append(oldValue);
-                    break;
-                case UPDATED:
-                    item.append("  - ").append(key).append(": ").append(oldValue);
-                    item.append("\n");
-                    item.append("  + ").append(key).append(": ").append(newValue);
-                    break;
-                case SAME:
-                    item.append("    ").append(key).append(": ").append(newValue);
-                    break;
-                default:
-                    break;
-            }
-
-            result.add(item.toString());
+    private final Format formatter;
+    Formatter(String format) {
+//        System.out.println("Formatter format " + format);
+        switch (format) {
+            case "plain":
+                formatter = new Plain();
+                break;
+            case "stylish":
+            default:
+                formatter = new Stylish();
+                break;
         }
+    }
 
-        result.add("}");
-
-        return String.join("\n", result);
+    public String format(List<DiffItem> changes) {
+        return formatter.format(changes);
     }
 }
