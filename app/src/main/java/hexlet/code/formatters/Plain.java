@@ -33,13 +33,13 @@ public class Plain implements Format {
 //                    item.append("Property ").append(key).append(" was added with value: ").append(newValue);
                     break;
                 case DELETED:
-                    str = String.format("Property %s was was removed", key);
+                    str = String.format("Property %s was removed", key);
                     result.add(str);
 
 //                    item.append("Property ").append(key).append(" was was removed");
                     break;
                 case UPDATED:
-                    str = String.format("Property %s was updated. From value: %s to %s", key, oldValue, newValue);
+                    str = String.format("Property %s was updated. From %s to %s", key, oldValue, newValue);
                     result.add(str);
 
 //                    item.append("Property ").append(key).append(" was updated. From value: ")

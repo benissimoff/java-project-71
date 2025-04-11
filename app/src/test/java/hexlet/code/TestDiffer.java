@@ -136,4 +136,48 @@ public class TestDiffer {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testDifferHexletPlainFormat() throws IOException {
+        String filepath1 = "./src/test/resources/hexlet/file1.yml";
+        String filepath2 = "./src/test/resources/hexlet/file2.yml";
+        String expectedFilepath = "./src/test/resources/hexlet/result_plain.txt";
+        String format = "plain";
+//        System.out.println("outFile " + outFile);
+
+        Path expectedPath = Paths.get(expectedFilepath);
+        String expected = String.join("\n", Files.readAllLines(expectedPath));
+
+//        System.out.println("actual " + actual);
+
+        // get differ
+        String actual = Differ.generate(filepath1, filepath2, format);
+//        System.out.println("actual " + actual);
+
+        // compare result
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void testDifferHexletStylishFormat() throws IOException {
+        String filepath1 = "./src/test/resources/hexlet/file1.json";
+        String filepath2 = "./src/test/resources/hexlet/file2.json";
+        String expectedFilepath = "./src/test/resources/hexlet/result_stylish.txt";
+        String format = "stylish";
+//        System.out.println("outFile " + outFile);
+
+        Path expectedPath = Paths.get(expectedFilepath);
+        String expected = String.join("\n", Files.readAllLines(expectedPath));
+
+//        System.out.println("actual " + actual);
+
+        // get differ
+        String actual = Differ.generate(filepath1, filepath2, format);
+//        System.out.println("actual " + actual);
+
+        // compare result
+        assertEquals(expected, actual);
+    }
+
+
 }
