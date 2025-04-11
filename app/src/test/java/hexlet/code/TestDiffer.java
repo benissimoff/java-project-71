@@ -115,4 +115,25 @@ public class TestDiffer {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testDifferLongJsonFormat() throws IOException {
+        String filepath1 = "./src/test/resources/long/file1.yaml";
+        String filepath2 = "./src/test/resources/long/file2.yml";
+        String expectedFilepath = "./src/test/resources/long/resultJson.txt";
+        String format = "json";
+//        System.out.println("outFile " + outFile);
+
+        Path expectedPath = Paths.get(expectedFilepath);
+        String expected = String.join("\n", Files.readAllLines(expectedPath));
+
+//        System.out.println("actual " + actual);
+
+        // get differ
+        String actual = Differ.generate(filepath1, filepath2, format);
+//        System.out.println("actual " + actual);
+
+        // compare result
+        assertEquals(expected, actual);
+    }
+
 }

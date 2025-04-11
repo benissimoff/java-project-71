@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import hexlet.code.formatters.Format;
+import hexlet.code.formatters.Json;
 import hexlet.code.formatters.Plain;
 import hexlet.code.formatters.Stylish;
 
@@ -13,6 +14,9 @@ public class Formatter {
         switch (format) {
             case "plain":
                 formatter = new Plain();
+                break;
+            case "json":
+                formatter = new Json();
                 break;
             case "stylish":
             default:

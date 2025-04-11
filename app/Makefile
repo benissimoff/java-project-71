@@ -12,6 +12,9 @@ test-long-json:
 test-plain:
 	./build/install/app/bin/app -f plain ./src/test/resources/long/file1.json ./src/test/resources/long/file2.json
 
+test-long-json-format:
+	./build/install/app/bin/app -f json ./src/test/resources/long/file1.json ./src/test/resources/long/file2.json
+
 test-long-json-reversed:
 	./build/install/app/bin/app ./src/test/resources/long/file2.json ./src/test/resources/long/file1.json
 
