@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Plain implements Format {
-    public String format(List<DiffItem> changes) {
+    public final String format(List<DiffItem> changes) {
         ArrayList<String> result = new ArrayList<String>();
 
         for (DiffItem change : changes) {

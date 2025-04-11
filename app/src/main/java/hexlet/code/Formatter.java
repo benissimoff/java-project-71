@@ -25,7 +25,7 @@ public class Formatter {
         }
     }
 
-    public String format(List<DiffItem> changes) {
+    public final String format(List<DiffItem> changes) {
         return formatter.format(changes);
     }
 }

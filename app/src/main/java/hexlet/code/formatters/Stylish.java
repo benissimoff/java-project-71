@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Stylish implements Format {
-    public String format(List<DiffItem> changes) {
+    public final String format(List<DiffItem> changes) {
         ArrayList<String> result = new ArrayList<String>();
 
         for (DiffItem change : changes) {

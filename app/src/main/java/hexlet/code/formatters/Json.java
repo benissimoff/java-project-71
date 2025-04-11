@@ -7,7 +7,7 @@ import java.util.List;
 public class Json implements Format {
 
     @Override
-    public String format(List<DiffItem> changes) {
+    public final String format(List<DiffItem> changes) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             String output = mapper.writeValueAsString(changes);
