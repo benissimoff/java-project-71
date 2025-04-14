@@ -12,8 +12,6 @@ public class Json implements Format {
             ObjectMapper mapper = new ObjectMapper();
             String output = mapper.writeValueAsString(changes);
 
-//            System.out.println("output " + output);
-
             return output;
         } catch (Exception e) {
             throw new RuntimeException("Not JSON format", e);

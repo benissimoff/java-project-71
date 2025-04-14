@@ -16,18 +16,11 @@ public class TestDiffer {
         String filepath2 = "./src/test/resources/short/file2.json";
         String expectedFilepath = "./src/test/resources/short/result.txt";
 
-//        System.out.println("outFile " + outFile);
-
         Path expectedPath = Paths.get(expectedFilepath);
         String expected = String.join("\n", Files.readAllLines(expectedPath));
 
-//        System.out.println("actual " + actual);
-
-        // get differ
         String actual = Differ.generate(filepath1, filepath2);
-//        System.out.println("actual " + actual);
 
-        // compare result
         assertEquals(expected, actual);
     }
 
@@ -37,18 +30,11 @@ public class TestDiffer {
         String filepath2 = "./src/test/resources/short/file2.yaml";
         String expectedFilepath = "./src/test/resources/short/result.txt";
 
-//        System.out.println("outFile " + outFile);
-
         Path expectedPath = Paths.get(expectedFilepath);
         String expected = String.join("\n", Files.readAllLines(expectedPath));
 
-//        System.out.println("actual " + actual);
-
-        // get differ
         String actual = Differ.generate(filepath1, filepath2);
-//        System.out.println("actual " + actual);
 
-        // compare result
         assertEquals(expected, actual);
     }
 
@@ -58,18 +44,11 @@ public class TestDiffer {
         String filepath2 = "./src/test/resources/long/file2.json";
         String expectedFilepath = "./src/test/resources/long/result.txt";
 
-//        System.out.println("outFile " + outFile);
-
         Path expectedPath = Paths.get(expectedFilepath);
         String expected = String.join("\n", Files.readAllLines(expectedPath));
 
-//        System.out.println("actual " + actual);
-
-        // get differ
         String actual = Differ.generate(filepath1, filepath2);
-//        System.out.println("actual " + actual);
 
-        // compare result
         assertEquals(expected, actual);
     }
 
@@ -79,18 +58,11 @@ public class TestDiffer {
         String filepath2 = "./src/test/resources/long/file2.yml";
         String expectedFilepath = "./src/test/resources/long/result.txt";
 
-//        System.out.println("outFile " + outFile);
-
         Path expectedPath = Paths.get(expectedFilepath);
         String expected = String.join("\n", Files.readAllLines(expectedPath));
 
-//        System.out.println("actual " + actual);
-
-        // get differ
         String actual = Differ.generate(filepath1, filepath2);
-//        System.out.println("actual " + actual);
 
-        // compare result
         assertEquals(expected, actual);
     }
 
@@ -100,18 +72,12 @@ public class TestDiffer {
         String filepath2 = "./src/test/resources/long/file2.yml";
         String expectedFilepath = "./src/test/resources/long/resultPlain.txt";
         String format = "plain";
-//        System.out.println("outFile " + outFile);
 
         Path expectedPath = Paths.get(expectedFilepath);
         String expected = String.join("\n", Files.readAllLines(expectedPath));
 
-//        System.out.println("actual " + actual);
-
-        // get differ
         String actual = Differ.generate(filepath1, filepath2, format);
-//        System.out.println("actual " + actual);
 
-        // compare result
         assertEquals(expected, actual);
     }
 
@@ -121,18 +87,12 @@ public class TestDiffer {
         String filepath2 = "./src/test/resources/long/file2.yml";
         String expectedFilepath = "./src/test/resources/long/resultJson.txt";
         String format = "json";
-//        System.out.println("outFile " + outFile);
 
         Path expectedPath = Paths.get(expectedFilepath);
         String expected = String.join("\n", Files.readAllLines(expectedPath));
 
-//        System.out.println("actual " + actual);
-
-        // get differ
         String actual = Differ.generate(filepath1, filepath2, format);
-//        System.out.println("actual " + actual);
 
-        // compare result
         assertEquals(expected, actual);
     }
 
@@ -142,18 +102,12 @@ public class TestDiffer {
         String filepath2 = "./src/test/resources/hexlet/file2.yml";
         String expectedFilepath = "./src/test/resources/hexlet/result_plain.txt";
         String format = "plain";
-//        System.out.println("outFile " + outFile);
 
         Path expectedPath = Paths.get(expectedFilepath);
         String expected = String.join("\n", Files.readAllLines(expectedPath));
 
-//        System.out.println("actual " + actual);
-
-        // get differ
         String actual = Differ.generate(filepath1, filepath2, format);
-//        System.out.println("actual " + actual);
 
-        // compare result
         assertEquals(expected, actual);
     }
 
@@ -164,20 +118,12 @@ public class TestDiffer {
         String filepath2 = "./src/test/resources/hexlet/file2.json";
         String expectedFilepath = "./src/test/resources/hexlet/result_stylish.txt";
         String format = "stylish";
-//        System.out.println("outFile " + outFile);
 
         Path expectedPath = Paths.get(expectedFilepath);
         String expected = String.join("\n", Files.readAllLines(expectedPath));
 
-//        System.out.println("actual " + actual);
-
-        // get differ
         String actual = Differ.generate(filepath1, filepath2, format);
-//        System.out.println("actual " + actual);
 
-        // compare result
         assertEquals(expected, actual);
     }
-
-
 }

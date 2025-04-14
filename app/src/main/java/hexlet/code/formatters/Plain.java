@@ -1,49 +1,32 @@
 package hexlet.code.formatters;
 
 import hexlet.code.DiffItem;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Objects;
 
 public class Plain implements Format {
     public final String format(List<DiffItem> changes) {
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
 
         for (DiffItem change : changes) {
-            StringBuilder item = new StringBuilder();
             String key = strValue(change.key());
             Object newValue = strValue(change.newValue());
             Object oldValue = strValue(change.oldValue());
-
-            String oldType = Objects.isNull(oldValue) ? "isNull" : oldValue.getClass().getName();
-            String newType = Objects.isNull(newValue) ? "isNull" : newValue.getClass().getName();
-
-//            System.out.println("key " + key + " oldType " + oldType);
-//            System.out.println("key " + key + " newType " + newType);
-
-            String str = "";
+            String formattedString;
 
             switch (change.status()) {
                 case ADDED:
-                    str = String.format("Property %s was added with value: %s", key, newValue);
-                    result.add(str);
-
-//                    item.append("Property ").append(key).append(" was added with value: ").append(newValue);
+                    formattedString = String.format("Property %s was added with value: %s", key, newValue);
+                    result.add(formattedString);
                     break;
                 case DELETED:
-                    str = String.format("Property %s was removed", key);
-                    result.add(str);
-
-//                    item.append("Property ").append(key).append(" was was removed");
+                    formattedString = String.format("Property %s was removed", key);
+                    result.add(formattedString);
                     break;
                 case UPDATED:
-                    str = String.format("Property %s was updated. From %s to %s", key, oldValue, newValue);
-                    result.add(str);
-
-//                    item.append("Property ").append(key).append(" was updated. From value: ")
-//                    .append(oldValue).append(" to ").append(newValue);
+                    formattedString = String.format("Property %s was updated. From %s to %s", key, oldValue, newValue);
+                    result.add(formattedString);
                     break;
                 case SAME:
                 default:

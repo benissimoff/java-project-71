@@ -25,13 +25,8 @@ repositories {
 }
 
 dependencies {
-//    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-
-//    testImplementation("org.junit.jupiter:junit-jupiter")
-
     testImplementation(platform("org.junit:junit-bom:5.10.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-
     implementation("info.picocli:picocli:4.7.6")
     annotationProcessor("info.picocli:picocli-codegen:4.7.6")
     implementation("com.fasterxml.jackson.core:jackson-core:2.18.2")
@@ -39,24 +34,13 @@ dependencies {
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.19.0-rc2")
 }
 
-//compileJava {
-//    options.compilerArgs += ["-Aproject=${project.group}/${project.name}"]
-//}
-
 tasks.test {
     useJUnitPlatform()
-//    testLogging {
-//        exceptionFormat = TestExceptionFormat.FULL
-//        events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
-//        // showStackTraces = true
-//        // showCauses = true
-//        showStandardStreams = true
-//    }
-    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+    finalizedBy(tasks.jacocoTestReport)
 }
 
 tasks.jacocoTestReport {
-    dependsOn(tasks.test) // tests are required to run before generating the report
+    dependsOn(tasks.test)
     reports {
         xml.required = true
     }

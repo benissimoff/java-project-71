@@ -10,7 +10,7 @@ import java.util.List;
 public class Formatter {
     private final Format formatter;
     Formatter(String format) {
-//        System.out.println("Formatter format " + format);
+
         switch (format) {
             case "plain":
                 formatter = new Plain();

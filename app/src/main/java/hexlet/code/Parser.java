@@ -12,9 +12,7 @@ public class Parser {
     public static Map<String, Object> parse(String filepath) throws IOException {
         File file = new File(filepath);
 
-        // parse file to Map
         String fileType = filepath.substring(filepath.lastIndexOf('.') + 1);
-//        System.out.println("fileType " + fileType);
         ObjectMapper objectMapper = new YAMLMapper();
         if (fileType.endsWith(".json")) {
             objectMapper = new ObjectMapper();

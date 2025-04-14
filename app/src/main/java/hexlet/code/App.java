@@ -24,7 +24,6 @@ public class App {
     private static boolean versionInfoRequested;
 
     public static void main(String[] args) throws IOException {
-        // display help
         CommandLine commandLine = new CommandLine(new App());
         commandLine.parseArgs(args);
         if (commandLine.isUsageHelpRequested()) {
@@ -34,8 +33,6 @@ public class App {
             commandLine.printVersionHelp(System.out);
             return;
         }
-
-//        System.out.println("format " + format);
 
         String result = Differ.generate(filepath1, filepath2, format);
 
