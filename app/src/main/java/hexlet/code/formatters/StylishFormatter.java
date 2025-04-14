@@ -6,7 +6,7 @@ import java.util.List;
 
 public class StylishFormatter implements TypeFormatter {
     public final String format(List<DiffItem> changes) {
-        ArrayList<String> result = new ArrayList<>();
+        List<String> result = new ArrayList<>();
 
         for (DiffItem change : changes) {
             String key = change.key();
