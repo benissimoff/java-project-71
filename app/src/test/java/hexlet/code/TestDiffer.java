@@ -117,7 +117,7 @@ public class TestDiffer {
         String filepath1 = "./src/test/resources/hexlet/file1.json";
         String filepath2 = "./src/test/resources/hexlet/file2.json";
         String expectedFilepath = "./src/test/resources/hexlet/result_stylish.txt";
-        String format = "stylish";
+        String format = Formatter.STYLISH;
 
         Path expectedPath = Paths.get(expectedFilepath);
         String expected = String.join("\n", Files.readAllLines(expectedPath));

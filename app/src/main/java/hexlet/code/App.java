@@ -13,7 +13,7 @@ public class App {
     @Option(names = {"-f", "--format"},
             paramLabel = "format",
             description = "output format [default: ${DEFAULT-VALUE}]")
-    private static String format = "stylish";
+    private static String format = Formatter.STYLISH;
     @Parameters(index = "0", description = "path to first file", paramLabel = "filepath1")
     private static String filepath1;
     @Parameters(index = "1", description = "path to second file", paramLabel = "filepath2")

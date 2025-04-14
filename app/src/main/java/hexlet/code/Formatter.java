@@ -1,26 +1,29 @@
 package hexlet.code;
 
-import hexlet.code.formatters.Format;
-import hexlet.code.formatters.Json;
-import hexlet.code.formatters.Plain;
-import hexlet.code.formatters.Stylish;
+import hexlet.code.formatters.TypeFormatter;
+import hexlet.code.formatters.JsonFormatter;
+import hexlet.code.formatters.PlainFormatter;
+import hexlet.code.formatters.StylishFormatter;
 
 import java.util.List;
 
 public class Formatter {
-    private final Format formatter;
+    private final TypeFormatter formatter;
+    public static final String STYLISH = "stylish";
+    public static final String PLAIN = "plain";
+    public static final String JSON = "json";
     Formatter(String format) {
 
         switch (format) {
-            case "plain":
-                formatter = new Plain();
+            case PLAIN:
+                formatter = new PlainFormatter();
                 break;
-            case "json":
-                formatter = new Json();
+            case JSON:
+                formatter = new JsonFormatter();
                 break;
-            case "stylish":
+            case STYLISH:
             default:
-                formatter = new Stylish();
+                formatter = new StylishFormatter();
                 break;
         }
     }

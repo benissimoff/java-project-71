@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class Plain implements Format {
+public class PlainFormatter implements TypeFormatter {
     public final String format(List<DiffItem> changes) {
         ArrayList<String> result = new ArrayList<>();
 

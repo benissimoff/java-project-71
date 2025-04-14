@@ -4,7 +4,7 @@ import hexlet.code.DiffItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Stylish implements Format {
+public class StylishFormatter implements TypeFormatter {
     public final String format(List<DiffItem> changes) {
         ArrayList<String> result = new ArrayList<>();
 

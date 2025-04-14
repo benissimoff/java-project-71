@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import hexlet.code.DiffItem;
 import java.util.List;
 
-public class Json implements Format {
+public class JsonFormatter implements TypeFormatter {
 
     @Override
     public final String format(List<DiffItem> changes) {
