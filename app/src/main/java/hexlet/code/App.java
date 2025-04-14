@@ -38,9 +38,9 @@ public class App {
 
         System.out.println(result);
     }
-//
-//    public void call(String filePath1, String filePath2) throws IOException {
-//        String result = Differ.generate(filePath1, filePath2, format);
-//        System.out.println(result);
-//    }
+
+    public void call(String filePath1, String filePath2) throws IOException {
+        String result = Differ.generate(filePath1, filePath2, format);
+        System.out.println(result);
+    }
 }
