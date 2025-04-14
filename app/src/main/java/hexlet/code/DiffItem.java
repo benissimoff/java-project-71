@@ -4,9 +4,6 @@ import java.util.Objects;
 import java.util.Map;
 
 public record DiffItem(String key, Object oldValue, Object newValue, Status status) {
-    public enum Status {
-        ADDED, DELETED, UPDATED, SAME
-    }
 
     public static DiffItem init(String key, Map<String, Object> map1, Map<String, Object> map2) {
         Object value1 = map1.get(key);
